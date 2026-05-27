@@ -99,7 +99,7 @@ do
   vim.g.maplocalleader = ' '
 
   -- Set to true if you have a Nerd Font installed and selected in the terminal
-  vim.g.have_nerd_font = false
+  vim.g.have_nerd_font = true
 
   -- [[ Setting options ]]
   --  See `:help vim.o`
@@ -172,6 +172,10 @@ do
   -- See `:help 'confirm'`
   vim.o.confirm = true
 
+  vim.opt.tabstop = 8
+  vim.opt.shiftwidth = 8
+  vim.opt.softtabstop = 8
+
   -- [[ Basic Keymaps ]]
   --  See `:help vim.keymap.set()`
 
@@ -214,10 +218,10 @@ do
   vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
   -- TIP: Disable arrow keys in normal mode
-  -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
-  -- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
-  -- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
-  -- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
+  vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
+  vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
+  vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
+  vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
   -- Keybinds to make split navigation easier.
   --  Use CTRL+<hjkl> to switch between windows
@@ -971,6 +975,19 @@ do
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   -- require 'custom.plugins'
+
+  local git_plugins = {
+    gh 'sindrets/diffview.nvim',
+    gh 'NeogitOrg/neogit',
+    gh 'tpope/vim-fugitive'
+  }
+
+  vim.pack.add(git_plugins)
+
+  require('diffview').setup({})
+
+  require('neogit').setup({})
+
 end
 
 -- The line beneath this is called `modeline`. See `:help modeline`
