@@ -89,6 +89,7 @@ P.S. You can delete this when you're done too. It's your config now! :)
 -- Core Neovim settings, leaders, options, basic keymaps, basic autocmds
 -- ============================================================
 do
+  vim.opt.modeline = false
   -- Enable faster startup by caching compiled Lua modules
   vim.loader.enable()
 
